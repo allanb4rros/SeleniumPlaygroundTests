@@ -81,14 +81,14 @@ class DownloadTests(unittest.TestCase):
                 EC.visibility_of_element_located((By.ID, "file"))
             )
 
-            # Clicar no botão de upload e enviar o caminho do arquivo
+            # Enviar o caminho do arquivoo
             upload_file.send_keys(upload_path)
             
             complete_message = self.driver.find_element(
                 By.XPATH, "//div[@id='error']").text
             # Verifique se a mensagem é "File type should be pdf, png, jpeg or jpg"
-            if self.assertEqual("File type should be pdf, png, jpeg or jpg", complete_message, "\n Expected & Actual Messages Do Not Match \n"):
-                print("Approved")
+            self.assertEqual("File type should be pdf, png, jpeg or jpg", complete_message, "\n Expected & Actual Messages Do Not Match \n"):
+            print("Approved")
 
             # Registrar o resultado do teste no MongoDB
             self.record_test_result("test_file_upload_2", "Approved", content=complete_message, expected="File type should be pdf, png, jpeg or jpg")
