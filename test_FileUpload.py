@@ -8,7 +8,7 @@ import os
 from datetime import datetime
 
 
-class DownloadTests(unittest.TestCase):
+class UploadTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -60,8 +60,8 @@ class DownloadTests(unittest.TestCase):
                 By.XPATH, "//div[@id='error']").text
            
             # Verifique se a mensagem é "File Successfully Uploaded"
-            if self.assertEqual("File Successfully Uploaded", complete_message, "\n Expected & Actual Messages Do Not Match \n"):
-                print("Approved")            
+            self.assertEqual("File Successfully Uploaded", complete_message, "\n Expected & Actual Messages Do Not Match \n"):
+            print("Approved")            
            
             # Registrar o resultado do teste no MongoDB
             self.record_test_result("test_file_upload_1", "Approved", content=complete_message, expected="File Successfully Uploaded")
