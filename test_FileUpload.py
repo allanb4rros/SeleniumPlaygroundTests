@@ -60,7 +60,7 @@ class UploadTests(unittest.TestCase):
                 By.XPATH, "//div[@id='error']").text
            
             # Verifique se a mensagem é "File Successfully Uploaded"
-            self.assertEqual("File Successfully Uploaded", complete_message, "\n Expected & Actual Messages Do Not Match \n"):
+            self.assertEqual("File Successfully Uploaded", complete_message, "\n Expected & Actual Messages Do Not Match \n")
             print("Approved")            
            
             # Registrar o resultado do teste no MongoDB
